@@ -132,106 +132,106 @@ function getColumns(countries: string[], direction: Direction): readonly Column<
       name: 'Assignee',
       editor: textEditor
     },
-    {
-      key: 'progress',
-      name: 'Completion',
-      formatter(props) {
-        const value = props.row.progress;
-        return (
-          <>
-            <progress max={100} value={value} style={{ inlineSize: 50 }} /> {Math.round(value)}%
-          </>
-        );
-      },
-      editor({ row, onRowChange, onClose }) {
-        return createPortal(
-          <div
-            dir={direction}
-            className={dialogContainerClassname}
-            onKeyDown={(event) => {
-              if (event.key === 'Escape') {
-                onClose();
-              }
-            }}
-          >
-            <dialog open>
-              <input
-                autoFocus
-                type="range"
-                min="0"
-                max="100"
-                value={row.progress}
-                onChange={(e) => onRowChange({ ...row, progress: e.target.valueAsNumber })}
-              />
-              <menu>
-                <button type="button" onClick={() => onClose()}>
-                  Cancel
-                </button>
-                <button type="button" onClick={() => onClose(true)}>
-                  Save
-                </button>
-              </menu>
-            </dialog>
-          </div>,
-          document.body
-        );
-      },
-      editorOptions: {
-        renderFormatter: true
-      }
-    },
-    {
-      key: 'startTimestamp',
-      name: 'Start date',
-      formatter(props) {
-        return <TimestampFormatter timestamp={props.row.startTimestamp} />;
-      }
-    },
-    {
-      key: 'endTimestamp',
-      name: 'Deadline',
-      formatter(props) {
-        return <TimestampFormatter timestamp={props.row.endTimestamp} />;
-      }
-    },
-    {
-      key: 'budget',
-      name: 'Budget',
-      formatter(props) {
-        return <CurrencyFormatter value={props.row.budget} />;
-      }
-    },
-    {
-      key: 'transaction',
-      name: 'Transaction type'
-    },
-    {
-      key: 'account',
-      name: 'Account'
-    },
-    {
-      key: 'version',
-      name: 'Version',
-      editor: textEditor
-    },
-    {
-      key: 'available',
-      name: 'Available',
-      formatter({ row, onRowChange, tabIndex }) {
-        return (
-          <SelectCellFormatter
-            value={row.available}
-            onChange={() => {
-              onRowChange({ ...row, available: !row.available });
-            }}
-            tabIndex={tabIndex}
-          />
-        );
-      },
-      summaryFormatter({ row: { yesCount, totalCount } }) {
-        return <>{`${Math.floor((100 * yesCount) / totalCount)}% ✔️`}</>;
-      }
-    }
+    // {
+    //   key: 'progress',
+    //   name: 'Completion',
+    //   formatter(props) {
+    //     const value = props.row.progress;
+    //     return (
+    //       <>
+    //         <progress max={100} value={value} style={{ inlineSize: 50 }} /> {Math.round(value)}%
+    //       </>
+    //     );
+    //   },
+    //   editor({ row, onRowChange, onClose }) {
+    //     return createPortal(
+    //       <div
+    //         dir={direction}
+    //         className={dialogContainerClassname}
+    //         onKeyDown={(event) => {
+    //           if (event.key === 'Escape') {
+    //             onClose();
+    //           }
+    //         }}
+    //       >
+    //         <dialog open>
+    //           <input
+    //             autoFocus
+    //             type="range"
+    //             min="0"
+    //             max="100"
+    //             value={row.progress}
+    //             onChange={(e) => onRowChange({ ...row, progress: e.target.valueAsNumber })}
+    //           />
+    //           <menu>
+    //             <button type="button" onClick={() => onClose()}>
+    //               Cancel
+    //             </button>
+    //             <button type="button" onClick={() => onClose(true)}>
+    //               Save
+    //             </button>
+    //           </menu>
+    //         </dialog>
+    //       </div>,
+    //       document.body
+    //     );
+    //   },
+    //   editorOptions: {
+    //     renderFormatter: true
+    //   }
+    // },
+    // {
+    //   key: 'startTimestamp',
+    //   name: 'Start date',
+    //   formatter(props) {
+    //     return <TimestampFormatter timestamp={props.row.startTimestamp} />;
+    //   }
+    // },
+    // {
+    //   key: 'endTimestamp',
+    //   name: 'Deadline',
+    //   formatter(props) {
+    //     return <TimestampFormatter timestamp={props.row.endTimestamp} />;
+    //   }
+    // },
+    // {
+    //   key: 'budget',
+    //   name: 'Budget',
+    //   formatter(props) {
+    //     return <CurrencyFormatter value={props.row.budget} />;
+    //   }
+    // },
+    // {
+    //   key: 'transaction',
+    //   name: 'Transaction type'
+    // },
+    // {
+    //   key: 'account',
+    //   name: 'Account'
+    // },
+    // {
+    //   key: 'version',
+    //   name: 'Version',
+    //   editor: textEditor
+    // },
+    // {
+    //   key: 'available',
+    //   name: 'Available',
+    //   formatter({ row, onRowChange, tabIndex }) {
+    //     return (
+    //       <SelectCellFormatter
+    //         value={row.available}
+    //         onChange={() => {
+    //           onRowChange({ ...row, available: !row.available });
+    //         }}
+    //         tabIndex={tabIndex}
+    //       />
+    //     );
+    //   },
+    //   summaryFormatter({ row: { yesCount, totalCount } }) {
+    //     return <>{`${Math.floor((100 * yesCount) / totalCount)}% ✔️`}</>;
+    //   }
+    // }
   ];
 }
 

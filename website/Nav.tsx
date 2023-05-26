@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { css } from '@linaria/core';
 
 import type { Direction } from '../src/types';
+import { useState } from 'react';
 
 const navClassname = css`
   display: flex;
@@ -70,8 +71,17 @@ interface Props {
 }
 
 export default function Nav({ direction, onDirectionChange }: Props) {
+
+  const [isNavSmall, setIsSmall] = useState(true);
+  const smallNavStyle = { width: "20px" }
+
   return (
-    <nav className={navClassname}>
+    <nav className={navClassname} style={!isNavSmall ? smallNavStyle : {}}>
+
+      <button onClick={() => setIsSmall(!isNavSmall)}>
+        T
+      </button>
+
       <h1>react-data-grid</h1>
 
       <h2>Demos</h2>
