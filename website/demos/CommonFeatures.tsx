@@ -106,32 +106,32 @@ function getColumns(countries: string[], direction: Direction): readonly Column<
       name: 'Area',
       editor: textEditor
     },
-    {
-      key: 'country',
-      name: 'Country',
-      editor: (p) => (
-        <select
-          autoFocus
-          className={textEditorClassname}
-          value={p.row.country}
-          onChange={(e) => p.onRowChange({ ...p.row, country: e.target.value }, true)}
-        >
-          {countries.map((country) => (
-            <option key={country}>{country}</option>
-          ))}
-        </select>
-      )
-    },
-    {
-      key: 'contact',
-      name: 'Contact',
-      editor: textEditor
-    },
-    {
-      key: 'assignee',
-      name: 'Assignee',
-      editor: textEditor
-    },
+    // {
+    //   key: 'country',
+    //   name: 'Country',
+    //   editor: (p) => (
+    //     <select
+    //       autoFocus
+    //       className={textEditorClassname}
+    //       value={p.row.country}
+    //       onChange={(e) => p.onRowChange({ ...p.row, country: e.target.value }, true)}
+    //     >
+    //       {countries.map((country) => (
+    //         <option key={country}>{country}</option>
+    //       ))}
+    //     </select>
+    //   )
+    // },
+    // {
+    //   key: 'contact',
+    //   name: 'Contact',
+    //   editor: textEditor
+    // },
+    // {
+    //   key: 'assignee',
+    //   name: 'Assignee',
+    //   editor: textEditor
+    // },
     // {
     //   key: 'progress',
     //   name: 'Completion',
